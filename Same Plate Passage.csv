@@ -1,0 +1,11 @@
+Parameter Name,Description,Type,Default Value,Min Value,Max Value,Unit,Constraints,Notes
+sample_plate_barcode,The name of the plate to passage,string,Required,NA,NA,NA,Must be valid plate barcode,Required parameter
+reagent_type,The type of reagent to add to the plate,string,Novel Media,NA,NA,NA,Must be valid reagent name,Can be changed to different media types
+parent_well_array_to_transfer,The parent wells to transfer from,array[string],Auto-detected live wells,NA,NA,NA,Valid well positions (A1 B2 etc),Auto-detected by default
+child_well_array_to_transfer,The child wells to transfer to,array[string],Required,NA,NA,NA,Valid well positions (A1 B2 etc),Must specify target wells
+seed_volume_array,How much of the seed to add,array[integer],Required,20,180,μL,Per well volume,Array length must match number of wells
+mix_reps,The number of times to mix the wells,number,3,1,NA,NA,Any positive number,Controls mixing intensity
+mix_volume,The volume to use for mixing,number,100,20,200,μL,Volume constraints,Controls mixing volume
+mix_height_mm,The height of the mix,number,2,1,5,mm,Height constraints,Controls mixing depth
+final_well_volume,The final volume of the well,number,200,20,200,μL,Volume constraints,Target well volume after passage
+keep_parent_wells_alive,Whether to keep parent wells alive,boolean,false,NA,NA,NA,true/false,Set to true for repeated passaging
