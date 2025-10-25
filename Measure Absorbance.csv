@@ -1,0 +1,4 @@
+Parameter Name,Description,Type,Default Value,Min Value,Max Value,Unit,Constraints,Notes
+culture_plate_barcode,The name of the plate to measure,string,Required,NA,NA,NA,Must be valid plate barcode,Required parameter
+method_name,The Magellan method to run,string,96wp_od600,NA,NA,NA,Valid method name,Can be changed to different measurement methods
+wells_to_process,The array of wells to measure,array[string],Auto-detected live wells,NA,NA,NA,Valid well positions (A1 B2 etc),Auto-detected by default
