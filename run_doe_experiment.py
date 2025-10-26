@@ -1,6 +1,6 @@
 """
 DOE Experiment Execution Script
-Runs 96-well parameter testing with 10-minute OD600 monitoring
+Runs 12-well first cycle with 20μL cells + 180μL media and 10-minute OD600 monitoring
 """
 
 import asyncio
@@ -10,14 +10,14 @@ import os
 # Add the current directory to the path to import the parameter file
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from doe_parameters import get_well_parameters, get_all_well_ids, get_wells_parameters
+from doe_parameters import get_well_parameters, get_all_well_ids, get_wells_parameters, get_first_cycle_wells
 
 async def run_doe_experiment():
     """
     Execute the DOE experiment with 96 different parameter combinations
     """
     
-    print("🧪 Starting DOE Experiment: 96-Well Parameter Testing")
+    print("🧪 Starting DOE Experiment: 12-Well First Cycle")
     print("=" * 60)
     
     # Step 1: Check available plates
@@ -52,26 +52,30 @@ async def run_doe_experiment():
     # Step 3: Display parameter information
     print("\n📊 Parameter Configuration:")
     print("-" * 40)
-    all_wells = get_all_well_ids()
-    print(f"Total wells: {len(all_wells)}")
-    print(f"Parameter combinations: {len(all_wells)}")
+    first_cycle_wells = get_first_cycle_wells()
+    print(f"Total wells: {len(first_cycle_wells)}")
+    print(f"Wells: {', '.join(first_cycle_wells)}")
+    print(f"Cell volume: 20μL per well")
+    print(f"Media volume: 180μL per well")
+    print(f"Total volume: 200μL per well")
     print(f"Monitoring frequency: Every 10 minutes")
-    print(f"Experiment duration: 24+ hours")
+    print(f"Experiment duration: 48+ hours")
     
     # Show sample parameters
-    print("\n🔬 Sample Parameters (first 5 wells):")
-    for well_id in all_wells[:5]:
+    print("\n🔬 Parameters for all wells:")
+    for well_id in first_cycle_wells[:3]:  # Show first 3 wells
         params = get_well_parameters(well_id)
-        print(f"  {well_id}: Mix reps={params['mix_reps']}, Volume={params['mix_volume']}μL, Height={params['mix_height_mm']}mm, Seed={params['seed_volume']}μL")
+        print(f"  {well_id}: Mix reps={params['mix_reps']}, Volume={params['mix_volume']}μL, Height={params['mix_height_mm']}mm, Seed={params['seed_volume']}μL, Media={params['media_volume']}μL")
+    print(f"  ... (same parameters for all 12 wells)")
     
     # Step 4: Execute the workflow
     print(f"\n🚀 Starting workflow execution...")
     try:
         result = await instantiate_workflow(
-            definition_id=11,  # DOE 96-Well Continuous Growth Monitoring workflow
+            definition_id=18,  # DOE 12-Well First Cycle workflow
             inputs={"plate_barcode": plate_barcode},
             start_after_minutes=0,  # Start immediately after approval
-            reason=f"DOE Experiment: 96-well continuous growth monitoring with 10-minute OD600 readings on plate {plate_barcode}"
+            reason=f"DOE Experiment: 12-well first cycle with 20μL cells + 180μL media and 10-minute OD600 monitoring on plate {plate_barcode}"
         )
         
         print(f"✅ Workflow created successfully!")
@@ -133,9 +137,10 @@ async def main():
         print(f"\n📋 Next Steps:")
         print(f"1. Check the Workflow Instances UI to approve the workflow")
         print(f"2. Monitor progress through the UI or using the monitoring functions")
-        print(f"3. The experiment will run continuously with 10-minute OD600 readings")
+        print(f"3. The experiment will run for 48+ hours with 10-minute OD600 readings")
         print(f"4. Pure growth monitoring - no passaging, just growth curve data collection")
-        print(f"5. To stop the experiment, cancel the workflow in the UI when you're ready")
+        print(f"5. 12 wells (A1-A12) with 20μL cells + 180μL media each")
+        print(f"6. To stop the experiment, cancel the workflow in the UI when you're ready")
         
     else:
         print(f"\n❌ Failed to start experiment")
