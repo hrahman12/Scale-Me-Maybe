@@ -1,0 +1,7 @@
+source_well,destination_well,cell_volume_uL,media_volume_uL,total_volume_uL,mix_reps,mix_volume_uL,notes
+A1,A2,40,140,180,3,100,Source A1 transfers 40uL cells to A2; add 140uL media; mix 3x with 100uL
+A1,B2,40,140,180,7,100,Source A1 transfers 40uL cells to B2; add 140uL media; mix 7x with 100uL
+A1,C2,40,140,180,10,100,Source A1 transfers 40uL cells to C2; add 140uL media; mix 10x with 100uL
+B1,D2,40,140,180,3,50,Source B1 transfers 40uL cells to D2; add 140uL media; mix 3x with 50uL
+B1,E2,40,140,180,7,50,Source B1 transfers 40uL cells to E2; add 140uL media; mix 7x with 50uL
+B1,F2,40,140,180,10,50,Source B1 transfers 40uL cells to F2; add 140uL media; mix 10x with 50uL
