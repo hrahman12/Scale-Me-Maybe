@@ -1,0 +1,88 @@
+{
+  "best_log_growth_wells": [
+    {
+      "well_id": "C2",
+      "parameters": {
+        "mix_cycles": 10,
+        "mix_volume": 100,
+        "mix_height": 3,
+        "experiment": 1
+      },
+      "log_growth_slope": 0.2662368774191809,
+      "doubling_time": 2.6034980100394156,
+      "increase_ratio": 2.289046230737193,
+      "r_squared": 0.881728237716476,
+      "time_range": "0.2-2.9h",
+      "phase_type": "log_growth"
+    },
+    {
+      "well_id": "F2",
+      "parameters": {
+        "mix_cycles": 10,
+        "mix_volume": 50,
+        "mix_height": 3,
+        "experiment": 1
+      },
+      "log_growth_slope": 0.23878791950941675,
+      "doubling_time": 2.902773230672629,
+      "increase_ratio": 2.244039878630256,
+      "r_squared": 0.8381711960902986,
+      "time_range": "0.2-2.9h",
+      "phase_type": "log_growth"
+    },
+    {
+      "well_id": "D2",
+      "parameters": {
+        "mix_cycles": 3,
+        "mix_volume": 50,
+        "mix_height": 3,
+        "experiment": 1
+      },
+      "log_growth_slope": 0.23526680222964702,
+      "doubling_time": 2.946217545318422,
+      "increase_ratio": 2.35646032405484,
+      "r_squared": 0.8064695855719403,
+      "time_range": "0.2-2.9h",
+      "phase_type": "log_growth"
+    },
+    {
+      "well_id": "E2",
+      "parameters": {
+        "mix_cycles": 7,
+        "mix_volume": 50,
+        "mix_height": 3,
+        "experiment": 1
+      },
+      "log_growth_slope": 0.22417262789051723,
+      "doubling_time": 3.092024156037769,
+      "increase_ratio": 2.239562221321443,
+      "r_squared": 0.7950240676697172,
+      "time_range": "0.2-2.9h",
+      "phase_type": "log_growth"
+    }
+  ],
+  "parameter_ranges": {
+    "mix_cycles": {
+      "min": 1,
+      "max": 10
+    },
+    "mix_volume": {
+      "min": 50,
+      "max": 150
+    },
+    "mix_height": {
+      "min": 1,
+      "max": 4
+    }
+  },
+  "log_growth_optimization_results": {
+    "mix_cycles": 10,
+    "mix_volume": 100,
+    "mix_height": 3,
+    "predicted_log_growth_slope": 0.2662368774191809,
+    "predicted_doubling_time": 2.6034980100394156,
+    "confidence": 1,
+    "optimization_target": "log_growth_phase"
+  },
+  "real_data_samples": {}
+}

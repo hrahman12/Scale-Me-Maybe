@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Me Maybe - Autonomous Bio-Optimization Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hero Section with Parallax -->
+    <section class="hero">
+        <div class="parallax-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Scale Me Maybe</h1>
+            <p class="hero-subtitle">Autonomous Bio-Optimization Platform</p>
+            <p class="hero-description">
+                A closed-loop, self-learning automation platform that autonomously optimizes microbial growth and media conditions, 
+                learning from real-time data and iteratively improving performance.
+            </p>
+            
+            <div class="intro-song">
+                <div class="song-verse">
+                    <p class="song-line">Hey, I just met you,</p>
+                    <p class="song-line">And this is crazy,</p>
+                    <p class="song-line">But grow me maybe?</p>
+                </div>
+                
+                <div class="song-verse">
+                    <p class="song-line">It's in the media,</p>
+                    <p class="song-line">With your nutrients,</p>
+                    <p class="song-line">So optimize me maybe?</p>
+                </div>
+                
+                <div class="song-verse">
+                    <p class="song-line">All the parameters,</p>
+                    <p class="song-line">I just wanna see,</p>
+                    <p class="song-line">If you'll scale me maybe…</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="container">
+            <h2 class="section-title">Real-Time Monitoring Dashboard</h2>
+            
+            <div class="dashboard-grid">
+                <!-- Left Panel - Test Values -->
+                <div class="left-panel">
+                    <h3>Current Test Parameters</h3>
+                    <div class="parameter-cards">
+                        <div class="parameter-card">
+                            <div class="parameter-icon">↻</div>
+                            <div class="parameter-info">
+                                <h4>Mix Cycles</h4>
+                                <div class="parameter-value" id="mixCycles">3</div>
+                                <div class="parameter-unit">cycles</div>
+                            </div>
+                        </div>
+                        
+                        <div class="parameter-card">
+                            <div class="parameter-icon">↕</div>
+                            <div class="parameter-info">
+                                <h4>Mix Height</h4>
+                                <div class="parameter-value" id="mixHeight">2</div>
+                                <div class="parameter-unit">mm</div>
+                            </div>
+                        </div>
+                        
+                        <div class="parameter-card">
+                            <div class="parameter-icon">●</div>
+                            <div class="parameter-info">
+                                <h4>Mix Volume</h4>
+                                <div class="parameter-value" id="mixVolume">100</div>
+                                <div class="parameter-unit">μL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="parameter-card">
+                            <div class="parameter-icon">⧖</div>
+                            <div class="parameter-info">
+                                <h4>Passaging Time</h4>
+                                <div class="parameter-value" id="passagingTime">12</div>
+                                <div class="parameter-unit">hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel - OD/Absorbance Graph -->
+                <div class="right-panel">
+                    <h3>Bacterial Growth Over Time</h3>
+                    <div id="chartArea">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <!-- Real LOG GROWTH Optimization Results -->
+        <div class="experimental-results" id="experimentalResults" style="display: none;">
+            <h3>🧬 LOG GROWTH Phase Optimization Results</h3>
+            <div class="results-grid">
+                <div class="result-card">
+                    <h4>Best LOG GROWTH Wells</h4>
+                    <div id="bestWellsList"></div>
+                </div>
+                <div class="result-card">
+                    <h4>Optimal Parameters</h4>
+                    <div id="optimalParams"></div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-optimize" onclick="openOptimization()">
+                    Optimize Parameters
+                </button>
+                <button class="btn btn-download" onclick="downloadData()">
+                    Download Data
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optimization Modal -->
+    <div class="modal" id="optimizationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>AI-Powered Optimization</h2>
+                <button class="close-btn" onclick="closeOptimization()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="optimization-status">
+                    <div class="loading-spinner"></div>
+                    <p>Analyzing data and generating optimal parameters...</p>
+                </div>
+                
+                <div class="optimization-results" id="optimizationResults" style="display: none;">
+                    <h3>Optimized Growth Curve</h3>
+                    <div class="modal-chart-container">
+                        <canvas id="predictedChart"></canvas>
+                    </div>
+                    
+                    <div class="optimization-methodology">
+                        <h4>Optimization Methodology</h4>
+                        <div class="methodology-content">
+                            <div class="method-section">
+                                <h5>Machine Learning Model: Enhanced Bayesian Optimization</h5>
+                                <p>Our system uses a <strong>Bayesian-inspired optimization algorithm</strong> that learns from real experimental data to predict optimal growth parameters.</p>
+                            </div>
+                            
+                            <div class="method-section">
+                                <h5>Data Analysis Approach</h5>
+                                <ul>
+                                    <li><strong>Correlation Analysis:</strong> Analyzed 12 wells with 200+ data points to identify parameter-growth relationships</li>
+                                    <li><strong>Mix Height:</strong> +0.319 correlation with growth slope (higher = better)</li>
+                                    <li><strong>Mix Cycles:</strong> -0.231 correlation (fewer cycles = better growth)</li>
+                                    <li><strong>Mix Volume:</strong> -0.082 correlation (lower volume = slightly better)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="method-section">
+                                <h5>Optimization Strategy</h5>
+                                <ul>
+                                    <li><strong>Target:</strong> Maximize exponential growth slope in log phase (OD 0.1-0.4)</li>
+                                    <li><strong>Method:</strong> Parameter correlation weighting + biological constraints</li>
+                                    <li><strong>Validation:</strong> Realistic growth curves with stationary phase modeling</li>
+                                    <li><strong>Feedback Loop:</strong> Accept/Deny/Retry for continuous model improvement</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="method-section">
+                                <h5>Biological Modeling</h5>
+                                <ul>
+                                    <li><strong>Growth Phases:</strong> Lag → Exponential (0-2h) → Stationary/Decline (2-3h)</li>
+                                    <li><strong>Variability:</strong> ±5-10% biological noise + measurement uncertainty</li>
+                                    <li><strong>Constraints:</strong> Monotonic growth, realistic OD bounds (0.1-0.45)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Recommended Parameters</h3>
+                    <div class="recommended-params">
+                        <div class="param-item">
+                            <label>Mix Cycles:</label>
+                            <span class="recommended-value" id="recMixCycles">8</span>
+                        </div>
+                        <div class="param-item">
+                            <label>Mix Height:</label>
+                            <span class="recommended-value" id="recMixHeight">3.8</span> mm
+                        </div>
+                        <div class="param-item">
+                            <label>Mix Volume:</label>
+                            <span class="recommended-value" id="recMixVolume">135</span> μL
+                        </div>
+                        <div class="param-item">
+                            <label>Passaging Time:</label>
+                            <span class="recommended-value" id="recPassagingTime">22</span> hours
+                        </div>
+                    </div>
+                    
+                    <div class="optimization-actions">
+                        <button class="btn btn-accept" onclick="acceptOptimization()">Accept</button>
+                        <button class="btn btn-deny" onclick="denyOptimization()">Deny</button>
+                        <button class="btn btn-retry" onclick="retryOptimization()">Retry</button>
+                    </div>
+                    
+                    <div class="modal-download-section">
+                        <button class="btn btn-download-modal" onclick="downloadPredictedChart()">
+                            Download Optimized Chart
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Scale Me Maybe - Track 2 AI Monomer BioHack</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
