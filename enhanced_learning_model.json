@@ -1,0 +1,169 @@
+{
+  "model_type": "correlation_based_optimization",
+  "created_at": "2025-10-26T12:24:51.641114",
+  "data_summary": {
+    "total_wells_analyzed": 12,
+    "consider_data_points": 204,
+    "b2_preference": true
+  },
+  "correlation_insights": {
+    "mix_cycles_vs_growth": -0.23078822485651282,
+    "mix_volume_vs_growth": -0.08156050060695808,
+    "mix_height_vs_growth": 0.3193529369882387,
+    "mix_cycles_vs_doubling": 0.3408994190434196,
+    "mix_volume_vs_doubling": -0.18643770131550705,
+    "mix_height_vs_doubling": -0.417613531686639
+  },
+  "optimal_parameters": {
+    "mix_cycles": 4.4,
+    "mix_volume": 80.0,
+    "mix_height": 1.8,
+    "confidence": 0.417
+  },
+  "b2_analysis": {
+    "found": true,
+    "performance": {
+      "well_id": "B2",
+      "parameters": {
+        "experiment": 1,
+        "mix_cycles": 7,
+        "mix_volume": 100,
+        "mix_height": 0,
+        "cell_volume": 40,
+        "media_volume": 160,
+        "total_volume": 200
+      },
+      "growth_analysis": {
+        "well_id": "B2",
+        "total_points": 20,
+        "time_span_hours": 2.6708143594444445,
+        "max_od": 0.4165,
+        "min_od": 0.1868,
+        "od_range": 0.2297,
+        "growth_phase": {
+          "slope": 0.26749383145157224,
+          "r_squared": 0.8348861423713922,
+          "doubling_time": 2.591264167844687,
+          "start_hour": 0.0,
+          "end_hour": 0.7503041875,
+          "min_od": 0.3381,
+          "max_od": 0.4165,
+          "avg_od": 0.38469000000000003,
+          "growth_score": 0.21477905621730578,
+          "od_efficiency": 0.961725
+        }
+      },
+      "is_b2": true
+    },
+    "rank": 6
+  },
+  "top_performing_wells": [
+    {
+      "well_id": "D3",
+      "mix_cycles": 3,
+      "mix_volume": 50,
+      "mix_height": 1,
+      "growth_score": 0.2693,
+      "doubling_time": 2.13,
+      "is_b2": false
+    },
+    {
+      "well_id": "B3",
+      "mix_cycles": 3,
+      "mix_volume": 100,
+      "mix_height": 2,
+      "growth_score": 0.2414,
+      "doubling_time": 2.1,
+      "is_b2": false
+    },
+    {
+      "well_id": "C3",
+      "mix_cycles": 3,
+      "mix_volume": 100,
+      "mix_height": 4,
+      "growth_score": 0.2321,
+      "doubling_time": 2.49,
+      "is_b2": false
+    },
+    {
+      "well_id": "E3",
+      "mix_cycles": 3,
+      "mix_volume": 50,
+      "mix_height": 2,
+      "growth_score": 0.2262,
+      "doubling_time": 2.46,
+      "is_b2": false
+    },
+    {
+      "well_id": "C2",
+      "mix_cycles": 10,
+      "mix_volume": 100,
+      "mix_height": 0,
+      "growth_score": 0.2201,
+      "doubling_time": 2.68,
+      "is_b2": false
+    },
+    {
+      "well_id": "B2",
+      "mix_cycles": 7,
+      "mix_volume": 100,
+      "mix_height": 0,
+      "growth_score": 0.2148,
+      "doubling_time": 2.59,
+      "is_b2": true
+    },
+    {
+      "well_id": "D2",
+      "mix_cycles": 3,
+      "mix_volume": 50,
+      "mix_height": 0,
+      "growth_score": 0.2104,
+      "doubling_time": 2.94,
+      "is_b2": false
+    },
+    {
+      "well_id": "F3",
+      "mix_cycles": 3,
+      "mix_volume": 50,
+      "mix_height": 4,
+      "growth_score": 0.2062,
+      "doubling_time": 2.74,
+      "is_b2": false
+    },
+    {
+      "well_id": "A3",
+      "mix_cycles": 3,
+      "mix_volume": 100,
+      "mix_height": 1,
+      "growth_score": 0.206,
+      "doubling_time": 2.45,
+      "is_b2": false
+    },
+    {
+      "well_id": "E2",
+      "mix_cycles": 7,
+      "mix_volume": 50,
+      "mix_height": 0,
+      "growth_score": 0.2012,
+      "doubling_time": 3.03,
+      "is_b2": false
+    }
+  ],
+  "parameter_ranges": {
+    "mix_cycles": {
+      "min": 3,
+      "max": 10,
+      "optimal": 4.4
+    },
+    "mix_volume": {
+      "min": 50,
+      "max": 100,
+      "optimal": 80.0
+    },
+    "mix_height": {
+      "min": 0,
+      "max": 4,
+      "optimal": 1.8
+    }
+  }
+}
