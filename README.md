@@ -4,15 +4,11 @@
 
 ## Mission
 
-Build an intelligent system that **learns and adapts** to optimize growth conditions for unknown cell strains through automated experimentation and AI-driven decision making.
+Build an autonomous and intelligent system that **learns and adapts** to optimize growth conditions for unknown cell strains through automated execution on a physical workcell and AI-driven decision making. 
 
 ## How It Works
 
-```
-Unknown Cell Strain → ML Analysis → Optimal Conditions → Automated Testing → Learning Loop
-```
-
-Our system combines automated lab operations, ML-driven experiment design, continuous learning from experimental results, and adaptive optimization to propose next-best conditions and execute physical experiments autonomously.
+Beginning with an unknown cell strain, we systematically explore parameter combinations through automated cell passaging on the workcell, measuring biological outcomes to identify growth-optimizing versus detrimental parameters. Our Design of Experiments combined with ML methodology employs an explore-exploit approach to iteratively converge on optimal growth conditions.
 
 ## Key Features
 
