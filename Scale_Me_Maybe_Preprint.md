@@ -387,8 +387,7 @@ We acknowledge the support of Monomer Bio for providing access to their automate
 ---
 
 **Corresponding Author**: Scale Me Maybe Team  
-**Email**: contact@scalememaybe.com  
 **Institution**: 24hr AI Science Cell Culture Hack @ Monomer Bio  
-**Date**: October 2024  
+**Date**: October 2025  
 **Word Count**: 4,250 words  
 **Pages**: 12 pages
