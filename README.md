@@ -8,7 +8,7 @@ Build an autonomous and intelligent system that **learns and adapts** to optimiz
 
 ## How It Works
 
-Beginning with an unknown cell strain, we systematically explore parameter combinations through automated cell passaging on the workcell, measuring biological outcomes to identify growth-optimizing versus detrimental parameters. Our Design of Experiments combined with ML methodology employs an explore-exploit approach to iteratively converge on optimal growth conditions.
+Beginning with an unknown cell strain, we systematically explore parameter combinations through automated cell passaging on the workcell, measuring biological outcomes to identify growth-optimizing versus detrimental parameters. Our Design of Experiments combined with ML methodology employs and explore-exploit approach to iteratively converge on optimal growth conditions.
 
 ## Key Features
 
